@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prove you are not AI</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <h1>Prove you are not AI</h1>
+        </header>
+
+        
+        <main id="game-area">
+            <div id="start-screen" class="screen active">
+                <div class="captcha-box">
+                    <div class="captcha-header">
+                        <input type="checkbox" id="not-robot-checkbox">
+                        <label for="not-robot-checkbox">I am not a robot</label>
+                    </div>
+                  
+                  
+                    <div class="captcha-logo">
+                        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXJvYm90Ij48cGF0aCBkPSJNMTIgMjJhNyA3IDAgMSAwIDAtMTRhNyA3IDAgMCAwIDAgMTR6Ii8+PHBhdGggZD0iTTEwIDJ2MCIvPjxwYXRoIGQ9Ik0xNCAydjAiLz48cGF0aCBkPSJNMTIgMTd2MCIvPjxwYXRoIGQ9Ik0xMiAxNXYwIi8+PHBhdGggZD0iTTEyIDExdjAiLz48cGF0aCBkPSJNMTIgNXYwIi8+PHBhdGggZD0iTTEyIDd2MCIvPjxwYXRoIGQ9Ik0xMiA5djAiLz48cGF0aCBkPSJNMTIgMTN2MCIvPjxwYXRoIGQ9Ik0xMiAxOXYwIi8+PHBhdGggZD0iTTEyIDIxdjAiLz48cGF0aCBkPSJNMTIgM3YwIi8+PHBhdGggZD0iTTEwIDZ2MCIvPjxwYXRoIGQ9Ik0xNCA2djAiLz48cGF0aCBkPSJNMTIgMTJ2MCIvPjxwYXRoIGQ9Ik0xMiAxNnYwIi8+PHBhdGggZD0iTTEyIDIwdjAiLz48cGF0aCBkPSJNMTIgNHYwIi8+PHBhdGggZD0iTTEwIDh2MCIvPjxwYXRoIGQ9Ik0xNCA4djAiLz48cGF0aCBkPSJNMTIgMTB2MCIvPjxwYXRoIGQ9Ik0xMiAxNHYwIi8+PHBhdGggZD0iTTEyIDE4djAiLz48cGF0aCBkPSJNMTIgMjJ2MCIvPjxwYXRoIGQ9Ik0xMiAxNXYwIi8+PHBhdGggZD0iTTEyIDd2MCIvPjxwYXRoIGQ9Ik0xMiAxMXYwIi8+PHBhdGggZD0iTTEyIDE1djAiLz48cGF0aCBkPSJNMTIgMTl2MCIvPjxwYXRoIGQ9Ik0xMiAyM3YwIi8+PHBhdGggZD0iTTEyIDV2MCIvPjxwYXRoIGQ9Ik0xMiA5djAiLz48cGF0aCBkPSJNMTIgMTN2MCIvPjxwYXRoIGQ9Ik0xMiAxN3YwIi8+PHBhdGggZD0iTTEyIDIxdjAiLz48cGF0aCBkPSJNMTIgM3YwIi8+PHBhdGggZD0iTTEwIDR2MCIvPjxwYXRoIGQ9Ik0xNCA0djAiLz48cGF0aCBkPSJNMTIgOHYwIi8+PHBhdGggZD0iTTEyIDEydjAiLz48cGF0aCBkPSJNMTIgMTZ2MCIvPjxwYXRoIGQ9Ik0xMiAyMHYwIi8+PHBhdGggZD0iTTEwIDZ2MCIvPjxwYXRoIGQ9Ik0xNCA2djAiLz48cGF0aCBkPSJNMTIgMTB2MCIvPjxwYXRoIGQ9Ik0xMiAxNHYwIi8+PHBhdGggZD0iTTEyIDE4djAiLz48cGF0aCBkPSJNMTIgMjJ2MCIvPjxwYXRoIGQ9Ik0xMiAxNXYwIi8+PHBhdGggZD0iTTEyIDd2MCIvPjxwYXRoIGQ9Ik0xMiAxMXYwIi8+PHBhdGggZD0iTTEyIDE1djAiLz48cGF0aCBkPSJNMTIgMTl2MCIvPjxwYXRoIGQ9Ik0xMiAyM3YwIi8+PHBhdGggZD0iTTEyIDV2MCIvPjxwYXRoIGQ9Ik0xMiA5djAiLz48cGF0aCBkPSJNMTIgMTN2MCIvPjxwYXRoIGQ9Ik0xMiAxN3YwIi8+PHBhdGggZD0iTTEyIDIxdjAiLz48cGF0aCBkPSJNMTIgM3YwIi8+PC9zdmc+" alt="Robot Icon" width="32" height="32">
+                        <p>CAPTCHA</p>
+                    </div>
+                </div>
+                <button id="start-game-button" disabled>Start Verification</button>
+            </div>
+
+           
+            <div id="game-screen" class="screen">
+                <div class="level-info">
+                    <p>Level <span id="current-level">1</span> of 11</p>
+                    <p id="timer-display">Time: 10.00s</p>
+                </div>
+                <div class="captcha-challenge">
+                    <p id="challenge-text" class="challenge-text"></p>
+                    <div id="challenge-grid" class="challenge-grid">
+
+
+                    </div>
+                    <p id="instruction-text" class="instruction-text"></p>
+                    <button id="submit-button" class="submit-button" disabled>Submit</button>
+                </div>
+            </div>
+
+        
+
+            <div id="result-screen" class="screen">
+                <h2 id="result-message"></h2>
+                <p id="result-details"></p>
+                <button id="next-level-button" class="hidden">Next Level</button>
+                <button id="restart-button">Restart Game</button>
+            </div>
+        </main>
+
+        <footer>
+            <p>A creation by <span class="creator-name">ShadowRoot17</span></p>
+            <p>One more usless project</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

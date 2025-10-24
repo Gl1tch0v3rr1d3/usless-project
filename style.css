@@ -1,0 +1,302 @@
+/* Base Styles */
+:root {
+    --primary-color: #4CAF50; /* Green for success/primary actions */
+    --secondary-color: #FF9800; /* Orange for warnings/focus */
+    --background-color: #f0f0f0;
+    --card-background: #ffffff;
+    --border-color: #ccc;
+    --text-color: #333;
+    --error-color: #F44336; /* Red for failure/errors */
+    --font-family: 'Comic Sans MS', 'Chalkboard SE', cursive, sans-serif;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.game-container {
+    background-color: var(--card-background);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    padding: 30px;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Header */
+header h1 {
+    color: var(--primary-color);
+    font-size: 2em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 0 #eee;
+}
+
+/* Screens */
+.screen {
+    display: none;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.screen.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* CAPTCHA Box (Start Screen) */
+.captcha-box {
+    border: 2px solid var(--border-color);
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9f9;
+}
+
+.captcha-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.captcha-header input[type="checkbox"] {
+    width: 24px;
+    height: 24px;
+    accent-color: var(--primary-color);
+    cursor: pointer;
+    border: 2px solid var(--border-color);
+    border-radius: 4px;
+}
+
+.captcha-header label {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.captcha-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 0.7em;
+    color: #999;
+}
+
+/* Buttons */
+button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.2s, transform 0.1s;
+    box-shadow: 0 4px 0 #388E3C; /* Darker green for 3D effect */
+}
+
+button:hover:not(:disabled) {
+    background-color: #5cb85c;
+    transform: translateY(-1px);
+    box-shadow: 0 5px 0 #388E3C;
+}
+
+button:active:not(:disabled) {
+    transform: translateY(3px);
+    box-shadow: 0 1px 0 #388E3C;
+}
+
+button:disabled {
+    background-color: #a5d6a7;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+#start-game-button {
+    width: 100%;
+}
+
+/* Level Info */
+.level-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-bottom: 1px solid var(--border-color);
+    font-weight: bold;
+}
+
+/* Challenge Area */
+.captcha-challenge {
+    padding: 20px 0;
+}
+
+.challenge-text {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: var(--secondary-color);
+}
+
+.instruction-text {
+    font-style: italic;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+/* Challenge Grid */
+.challenge-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Keep it square */
+    max-width: 300px;
+    margin: 0 auto 20px;
+    border: 1px solid var(--border-color);
+    padding: 5px;
+    background-color: #fff;
+}
+
+.grid-item {
+    background-color: #eee;
+    border: 1px solid #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.1s, border-color 0.1s;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    font-size: 0.8em;
+    user-select: none;
+}
+
+.grid-item:hover {
+    background-color: #e0e0e0;
+}
+
+.grid-item.selected {
+    border: 3px solid var(--secondary-color);
+    box-shadow: 0 0 5px var(--secondary-color);
+}
+
+.grid-item.correct {
+    border: 3px solid var(--primary-color);
+    background-color: #c8e6c9;
+}
+
+.grid-item.incorrect {
+    border: 3px solid var(--error-color);
+    background-color: #ffcdd2;
+}
+
+/* Selection overlay for visual feedback */
+.grid-item::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.1s;
+}
+
+.grid-item.selected::after {
+    content: '✓';
+    color: white;
+    font-size: 2em;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(76, 175, 80, 0.7);
+    opacity: 1;
+}
+
+/* Result Screen */
+#result-message {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+#result-message.win {
+    color: var(--primary-color);
+}
+
+#result-message.lose {
+    color: var(--error-color);
+}
+
+#result-screen button {
+    margin: 10px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Footer */
+footer {
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px dashed var(--border-color);
+    font-size: 0.9em;
+    color: #666;
+}
+
+.creator-name {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Emotional Damage Features */
+.challenge-grid.shake {
+    animation: shake 0.5s;
+    animation-iteration-count: 2;
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+/* Timer styles for visual pressure */
+#timer-display {
+    transition: color 0.5s;
+}
+
+#timer-display.low-time {
+    color: var(--error-color);
+    font-size: 1.1em;
+}
