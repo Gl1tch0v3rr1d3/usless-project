@@ -32,7 +32,7 @@ This is a humorous take on CAPTCHA systems where each level introduces new trick
 
 ```bash
 # Clone this masterpiece of digital frustration
-git clone
+git clone https://github.com/Gl1tch0v3rr1d3/usless-project.git
 
 # Or just download the files and open index.html
 # It's that simple (unlike the game)
